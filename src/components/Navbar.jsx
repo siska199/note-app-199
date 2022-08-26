@@ -6,12 +6,11 @@ const Navbar = () => {
     <Nav>
         <TitleWebsite>
             <h1>
-                Me Note 📜
+                Me Note
             </h1>
         </TitleWebsite>
         <FilterSearch>
             <input placeholder='search note title...' type="text" name="" id="" />
-            <box-icon name='dots-horizontal-rounded'></box-icon>
         </FilterSearch>
     </Nav>
   )

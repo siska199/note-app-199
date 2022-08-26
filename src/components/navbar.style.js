@@ -12,8 +12,10 @@ export const TitleWebsite = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: white;
+    font-family: 'Signatra';
+    color:black;
 `
 export const FilterSearch = styled.section`
     background-color:#e4e4e7;
@@ -21,10 +23,10 @@ export const FilterSearch = styled.section`
     display: flex;
     column-gap: 0.5rem;
     padding: 0.5rem 1rem;
+    height: 3rem;
     input {
         width : 15rem;
-        height: 1.5rem;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         outline: none;
         border: none;
         background-color:#e4e4e7;
