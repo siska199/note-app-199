@@ -1,5 +1,5 @@
 export const bgColor = {
-  light: "#e4e4e7",
+  light: "#f4f4f5",
   dark: "#111827",
 };
 
@@ -9,7 +9,7 @@ export const secondaryColor = {
 };
 
 export const cardColor = {
-  c1: "#OOA5E3",
+  c1: "#6C88C4",
   c2: "#BDD7BF",
   c3: "#FF96C5",
   c4: "#FF5768",

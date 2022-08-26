@@ -1,10 +1,11 @@
 import React from 'react'
+import Hompage from './pages/Hompage'
 
 const App = () => {
   return (
-    <main>
-        App
-    </main>
+    <>
+      <Hompage/>
+    </>
   )
 }
 
