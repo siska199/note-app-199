@@ -7,6 +7,8 @@ export const Nav = styled.nav`
     padding: 1rem 0rem;
     display : flex;
     justify-content: space-between;
+    background-color: #F7ECDE;
+    z-index: 9999;
 `
 export const TitleWebsite = styled.div`
     display: flex;

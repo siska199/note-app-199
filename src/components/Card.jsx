@@ -1,7 +1,8 @@
 import React from 'react'
 import { showFormattedDate } from '../utils'
-import { CardContainer, CardHeader, CardBody } from './card.style'
+import { CardContainer, CardHeader, CardBody,ContainerOptionsCard } from './card.style'
 import { cardColor } from '../utils/styleVariables'
+import {BiDotsHorizontalRounded} from "react-icons/bi"
 
 const Card = ({data}) => {
     const date = showFormattedDate(data.createdAt)
@@ -33,8 +34,17 @@ const Card = ({data}) => {
             <h1>
                 {data.title}
             </h1>
-            <p>{date}</p>
+              <BiDotsHorizontalRounded className="dot-icon" size={"1.5rem"} style={{cursor:"pointer"}}/>
+              <ContainerOptionsCard>
+                <div>
+                    Arsipkan Catatan
+                </div>
+                <div>
+                    Delete Catatan
+                </div>
+              </ContainerOptionsCard>
         </CardHeader>
+        <p>{date}</p>
         <CardBody>
             <p>
                 {data.body}
