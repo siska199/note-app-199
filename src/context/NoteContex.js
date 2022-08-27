@@ -26,7 +26,6 @@ const reducer = (state, action) => {
       const newArchive = state.notes.filter(
         (note) => note.id == action.payload
       )[0];
-      console.log(newArchive)
       return {
         ...state,
         notes: state.notes.filter((note) => note.id != action.payload),

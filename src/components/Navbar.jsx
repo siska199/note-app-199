@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { MenuContext } from "../context/MenuContext";
 import {
   Nav,
   FilterSearch,
@@ -8,7 +9,8 @@ import {
 } from "./navbar.style";
 
 const Navbar = ({ handleOnChange }) => {
-  const active = "notes";
+  const { activeMenu, setActiveMenu } = useContext(MenuContext);
+
   return (
     <Nav>
       <TitleWebsite>
@@ -16,8 +18,18 @@ const Navbar = ({ handleOnChange }) => {
       </TitleWebsite>
       <LeftContainer>
         <ul>
-          <Li active={active == "notes" ? true : false}>Notes &#127848;</Li>
-          <Li active={active == "arsips" ? true : false}>Archives &#127846;</Li>
+          <Li
+            onClick={() => setActiveMenu("notes")}
+            active={activeMenu == "notes" ? true : false}
+          >
+            Notes &#127848;
+          </Li>
+          <Li
+            onClick={() => setActiveMenu("archives")}
+            active={activeMenu == "archives" ? true : false}
+          >
+            Archives &#127846;
+          </Li>
         </ul>
         <FilterSearch>
           <input

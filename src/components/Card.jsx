@@ -37,6 +37,7 @@ const Card = ({ data, i }) => {
       color = "pink";
       break;
   }
+  
   const handleArchive = () => {
     dispatch({
       type: ADD_ARCHIVE,

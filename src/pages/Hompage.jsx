@@ -9,9 +9,10 @@ import {
   ButtonAddNote,
 } from "./homepage.style";
 import { NoteContext } from "../context/NoteContex";
+import { MenuContext } from "../context/MenuContext";
 
 const Hompage = () => {
-  const activeMenu = "notes";
+  const { activeMenu } = useContext(MenuContext);
   const {
     state: { notes, archives },
   } = useContext(NoteContext);
@@ -21,7 +22,7 @@ const Hompage = () => {
 
   useEffect(() => {
     setData(activeMenu == "notes" ? notes : archives);
-  }, [notes, archives]);
+  }, [notes, archives, activeMenu]);
 
   const handleOnChange = (e) => {
     const filter = e.target.value;
