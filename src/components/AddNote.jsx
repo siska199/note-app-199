@@ -18,6 +18,7 @@ const AddNote = ({ setModal }) => {
     createdAt: "",
     body: "",
   };
+  const [maxLengthTitle, setMaxLengthTitle] = useState(50);
   const [form, setForm] = useState(initialForm);
 
   const handleOnChange = (e) => {
@@ -25,6 +26,9 @@ const AddNote = ({ setModal }) => {
       ...form,
       [e.target.name]: e.target.value,
     });
+    if (e.target.name == "title") {
+      setMaxLengthTitle(50 - e.target.value.length);
+    }
   };
   const handleSubmit = () => {
     const formData = {
@@ -47,7 +51,10 @@ const AddNote = ({ setModal }) => {
       <AddNoteContainer onClick={(e) => e.stopPropagation()}>
         <h1>Add New Note</h1>
         <FormContainer>
+          <label htmlFor="">Sisa karakter {maxLengthTitle}</label>
           <input
+            maxLength={50}
+            
             value={form.title}
             onChange={(e) => handleOnChange(e)}
             type="text"

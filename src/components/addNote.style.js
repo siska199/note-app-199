@@ -36,6 +36,10 @@ export const FormContainer = styled.div`
         background-color: #F7ECDE;
         
     }
+    label{
+        margin-left: auto;
+        font-size: 0.7rem;
+    }
 `
 
 export const Button = styled.button`
