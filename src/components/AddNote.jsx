@@ -9,8 +9,7 @@ import {
 import { v4 as uuidv4 } from "uuid";
 import { useContext } from "react";
 import { NoteContext } from "../context/NoteContex";
-import { ADD_NOTES } from "../context/action.type";
-import { showFormattedDate } from "../utils";
+import { ADD_NOTE } from "../context/action.type";
 
 const AddNote = ({ setModal }) => {
   const { dispatch } = useContext(NoteContext);
@@ -33,7 +32,7 @@ const AddNote = ({ setModal }) => {
       id: uuidv4(),
       archived: false,
     };
-    dispatch({ type: ADD_NOTES, payload: formData });
+    dispatch({ type: ADD_NOTE, payload: formData });
     handleCloseModal();
   };
 

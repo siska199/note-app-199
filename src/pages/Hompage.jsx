@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { BsPlusCircle } from "react-icons/bs";
 import Card from "../components/Card";
 import Navbar from "../components/Navbar";
@@ -8,8 +8,6 @@ import {
   WrapContainerCards,
   ButtonAddNote,
 } from "./homepage.style";
-import { useState } from "react";
-import { useContext } from "react";
 import { NoteContext } from "../context/NoteContex";
 
 const Hompage = () => {
@@ -17,8 +15,13 @@ const Hompage = () => {
   const {
     state: { notes, archives },
   } = useContext(NoteContext);
+
   const [modal, setModal] = useState(false);
   const [data, setData] = useState(activeMenu == "notes" ? notes : archives);
+
+  useEffect(() => {
+    setData(activeMenu == "notes" ? notes : archives);
+  }, [notes, archives]);
 
   const handleOnChange = (e) => {
     const filter = e.target.value;

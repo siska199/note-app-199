@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import { createContext } from "react";
 import { getInitialData } from "../utils";
-import { ADD_NOTES, ARCHIVE_NOTE } from "./action.type";
+import { ADD_NOTE, ADD_ARCHIVE, DELETE_NOTE } from "./action.type";
 
 export const NoteContext = createContext(null);
 
@@ -12,16 +12,21 @@ const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case ADD_NOTES:
+    case ADD_NOTE:
       return {
         ...state,
         notes: [...state.notes, action.payload],
       };
-    case ARCHIVE_NOTE:
+    case DELETE_NOTE:
+      return {
+        ...state,
+        notes: state.notes.filter((note) => note.id != action.payload),
+      };
+    case ADD_ARCHIVE:
       const newArchive = state.notes.filter(
         (note) => note.id == action.payload
       )[0];
-      console.log("new archive: ", newArchive);
+      console.log(newArchive)
       return {
         ...state,
         notes: state.notes.filter((note) => note.id != action.payload),

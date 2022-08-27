@@ -8,8 +8,12 @@ import {
 } from "./card.style";
 import { cardColor } from "../utils/styleVariables";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
+import { useContext } from "react";
+import { NoteContext } from "../context/NoteContex";
+import { ADD_ARCHIVE } from "../context/action.type";
 
 const Card = ({ data, i }) => {
+  const { dispatch } = useContext(NoteContext);
   const date = showFormattedDate(data.createdAt);
   const modRes = i % 5;
   let color;
@@ -33,7 +37,12 @@ const Card = ({ data, i }) => {
       color = "pink";
       break;
   }
-  const handleArchive = () => {};
+  const handleArchive = () => {
+    dispatch({
+      type: ADD_ARCHIVE,
+      payload: data.id,
+    });
+  };
   const handleDelete = () => {};
   return (
     <CardContainer color={color}>

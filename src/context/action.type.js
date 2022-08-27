@@ -1,7 +1,7 @@
 //Note Type
-export const ADD_NOTES= "ADD_NOTES"
-export const DELETE_NOTE= "DELETE_NOTE"
-export const ARCHIVE_NOTE= "ARCHIVE_NOTE"
+export const ADD_NOTE = "ADD_NOTE";
+export const DELETE_NOTE = "DELETE_NOTE";
+export const ADD_ARCHIVE = "ADD_ARCHIVE";
 
 //Menu Type
-export const CHANGE_MENU = "CHANGE_MENU"
+export const CHANGE_MENU = "CHANGE_MENU";
