@@ -8,31 +8,45 @@ import {
   WrapContainerCards,
   ButtonAddNote,
 } from "./homepage.style";
-import { getInitialData } from "../utils";
 import { useState } from "react";
 import { useContext } from "react";
 import { NoteContext } from "../context/NoteContex";
 
 const Hompage = () => {
+  const activeMenu = "notes";
   const {
-    state: { notes },
+    state: { notes, archives },
   } = useContext(NoteContext);
   const [modal, setModal] = useState(false);
+  const [data, setData] = useState(activeMenu == "notes" ? notes : archives);
 
+  const handleOnChange = (e) => {
+    const filter = e.target.value;
+    const filterRegex = new RegExp(filter, "ig");
+    setData((prev) => {
+      const data =
+        activeMenu == "notes"
+          ? notes.filter((note) => note.title.match(filterRegex))
+          : archives.filter((archive) => archive.title.match(filterRegex));
+      return data;
+    });
+  };
   const handleOpenModal = () => {
     const html = document.querySelector("html");
     html.classList.add("overflow-y-hidden");
     setModal(true);
   };
-  
+
   return (
     <article className="container">
-      <Navbar />
+      <Navbar handleOnChange={handleOnChange} />
       <WrapContainerCards>
         <ContainerCards>
-          {notes.map((data, i) => (
-            <Card key={i} data={data} />
-          ))}
+          {data
+            .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+            .map((data, i) => (
+              <Card key={i} i={i + 1} data={data} />
+            ))}
         </ContainerCards>
       </WrapContainerCards>
       <ButtonAddNote onClick={() => handleOpenModal()}>

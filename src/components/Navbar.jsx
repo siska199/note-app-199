@@ -7,7 +7,7 @@ import {
   Li,
 } from "./navbar.style";
 
-const Navbar = () => {
+const Navbar = ({ handleOnChange }) => {
   const active = "notes";
   return (
     <Nav>
@@ -20,7 +20,13 @@ const Navbar = () => {
           <Li active={active == "arsips" ? true : false}>Archives &#127846;</Li>
         </ul>
         <FilterSearch>
-          <input placeholder="search note title..." type="text" name="" id="" />
+          <input
+            onChange={(e) => handleOnChange(e)}
+            placeholder="search note title..."
+            type="text"
+            name=""
+            id=""
+          />
         </FilterSearch>
       </LeftContainer>
     </Nav>

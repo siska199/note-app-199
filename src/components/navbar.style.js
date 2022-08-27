@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Nav = styled.nav`
   position: sticky;
   top: 0;
-  padding: 1rem 0rem;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   background-color: #f7ecde;
