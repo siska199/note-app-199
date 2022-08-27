@@ -10,23 +10,27 @@ import {
 } from "./homepage.style";
 import { getInitialData } from "../utils";
 import { useState } from "react";
+import { useContext } from "react";
+import { NoteContext } from "../context/NoteContex";
+
 const Hompage = () => {
+  const {
+    state: { notes },
+  } = useContext(NoteContext);
   const [modal, setModal] = useState(false);
-  const data = getInitialData();
 
   const handleOpenModal = () => {
-    console.log("modal state: ", modal);
     const html = document.querySelector("html");
-    console.log("html: ", html)
-    html.classList.add("overflow-y-hidden")
+    html.classList.add("overflow-y-hidden");
     setModal(true);
   };
+  
   return (
     <article className="container">
       <Navbar />
       <WrapContainerCards>
         <ContainerCards>
-          {data.map((data, i) => (
+          {notes.map((data, i) => (
             <Card key={i} data={data} />
           ))}
         </ContainerCards>
@@ -34,7 +38,7 @@ const Hompage = () => {
       <ButtonAddNote onClick={() => handleOpenModal()}>
         <BsPlusCircle size="2rem" />
       </ButtonAddNote>
-      {modal && <AddNote setModal={setModal}/>}
+      {modal && <AddNote setModal={setModal} />}
     </article>
   );
 };

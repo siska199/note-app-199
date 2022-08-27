@@ -22,30 +22,31 @@ export const CardHeader = styled.header`
     font-size: 1rem;
   }
 `;
+
 export const CardBody = styled.div`
   font-size: 0.8rem;
   text-align: justify;
 `;
 
-
 export const ContainerOptionsCard = styled.section`
-    position: absolute;
-    width: 7rem;
-    right:1rem;
-    top: 2rem;
-    font-size: 0.7rem;
-    background-color: white;
-    display: none;
-    div{
-        padding: 0.5rem;
-        border-bottom: 0.005rem solid #94a3b8;
-        cursor: pointer;
-        &:hover{
-            background-color: #cbd5e1;
-        }
+  position: absolute;
+  width: 4rem;
+  right: 1rem;
+  top: 2rem;
+  font-size: 0.7rem;
+  background-color: white;
+  display: none;
+  ul li {
+    padding: 0.5rem;
+    border-bottom: 0.005rem solid #94a3b8;
+    cursor: pointer;
+    &:hover {
+      background-color: #cbd5e1;
     }
+  }
 
-    .dot-icon:hover + &, &:hover{
-        display: block;
-    }
-`
+  .dot-icon:hover + &,
+  &:hover {
+    display: block;
+  }
+`;

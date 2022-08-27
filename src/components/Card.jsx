@@ -36,12 +36,10 @@ const Card = ({data}) => {
             </h1>
               <BiDotsHorizontalRounded className="dot-icon" size={"1.5rem"} style={{cursor:"pointer"}}/>
               <ContainerOptionsCard>
-                <div>
-                    Arsipkan Catatan
-                </div>
-                <div>
-                    Delete Catatan
-                </div>
+                <ul>
+                  <li>Archive</li>
+                  <li>Delete</li>
+                </ul>
               </ContainerOptionsCard>
         </CardHeader>
         <p>{date}</p>
