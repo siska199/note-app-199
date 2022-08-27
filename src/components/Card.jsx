@@ -10,7 +10,11 @@ import { cardColor } from "../utils/styleVariables";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { useContext } from "react";
 import { NoteContext } from "../context/NoteContex";
-import { ADD_ARCHIVE, DELETE_NOTE } from "../context/action.type";
+import {
+  ADD_ARCHIVE,
+  DELETE_ARCHIVE,
+  DELETE_NOTE,
+} from "../context/action.type";
 import { MenuContext } from "../context/MenuContext";
 
 const Card = ({ data, i }) => {
@@ -47,11 +51,15 @@ const Card = ({ data, i }) => {
     });
   };
   const handleDelete = () => {
-    dispatch({
-      type: DELETE_NOTE,
-      payload: data.id,
-    });
-    
+    activeMenu == "notes"
+      ? dispatch({
+          type: DELETE_NOTE,
+          payload: data.id,
+        })
+      : dispatch({
+          type: DELETE_ARCHIVE,
+          payload: data.id,
+        });
   };
   return (
     <CardContainer color={color}>

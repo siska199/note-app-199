@@ -1,7 +1,12 @@
 import { useReducer } from "react";
 import { createContext } from "react";
 import { getInitialData } from "../utils";
-import { ADD_NOTE, ADD_ARCHIVE, DELETE_NOTE } from "./action.type";
+import {
+  ADD_NOTE,
+  ADD_ARCHIVE,
+  DELETE_NOTE,
+  DELETE_ARCHIVE,
+} from "./action.type";
 
 export const NoteContext = createContext(null);
 
@@ -30,6 +35,13 @@ const reducer = (state, action) => {
         ...state,
         notes: state.notes.filter((note) => note.id != action.payload),
         archives: [...state.archives, newArchive],
+      };
+    case DELETE_ARCHIVE:
+      return {
+        ...state,
+        archives: state.archives.filter(
+          (archive) => archive.id != action.payload
+        ),
       };
   }
 };
