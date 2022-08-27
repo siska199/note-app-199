@@ -10,11 +10,13 @@ import { cardColor } from "../utils/styleVariables";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { useContext } from "react";
 import { NoteContext } from "../context/NoteContex";
-import { ADD_ARCHIVE } from "../context/action.type";
+import { ADD_ARCHIVE, DELETE_NOTE } from "../context/action.type";
+import { MenuContext } from "../context/MenuContext";
 
 const Card = ({ data, i }) => {
   const { dispatch } = useContext(NoteContext);
   const date = showFormattedDate(data.createdAt);
+  const { activeMenu } = useContext(MenuContext);
   const modRes = i % 5;
   let color;
   switch (modRes) {
@@ -37,14 +39,20 @@ const Card = ({ data, i }) => {
       color = "pink";
       break;
   }
-  
+
   const handleArchive = () => {
     dispatch({
       type: ADD_ARCHIVE,
       payload: data.id,
     });
   };
-  const handleDelete = () => {};
+  const handleDelete = () => {
+    dispatch({
+      type: DELETE_NOTE,
+      payload: data.id,
+    });
+    
+  };
   return (
     <CardContainer color={color}>
       <CardHeader>
@@ -56,7 +64,9 @@ const Card = ({ data, i }) => {
         />
         <ContainerOptionsCard>
           <ul>
-            <li onClick={() => handleArchive()}>Archive</li>
+            {activeMenu == "notes" && (
+              <li onClick={() => handleArchive()}>Archive</li>
+            )}
             <li onClick={() => handleDelete()}>Delete</li>
           </ul>
         </ContainerOptionsCard>

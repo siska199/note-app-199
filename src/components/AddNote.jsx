@@ -16,7 +16,7 @@ const AddNote = ({ setModal }) => {
   const initialForm = {
     title: "",
     createdAt: "",
-    fill: "",
+    body: "",
   };
   const [form, setForm] = useState(initialForm);
 
@@ -61,11 +61,11 @@ const AddNote = ({ setModal }) => {
             name="createdAt"
           />
           <textarea
-            name="fill"
+            name="body"
             placeholder="Note Fill"
             cols="30"
             rows="5"
-            value={form.fill}
+            value={form.body}
             onChange={(e) => handleOnChange(e)}
           ></textarea>
           <Button
