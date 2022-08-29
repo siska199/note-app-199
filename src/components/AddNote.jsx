@@ -54,7 +54,6 @@ const AddNote = ({ setModal }) => {
           <label htmlFor="">Sisa karakter {maxLengthTitle}</label>
           <input
             maxLength={50}
-            
             value={form.title}
             onChange={(e) => handleOnChange(e)}
             type="text"
@@ -77,7 +76,7 @@ const AddNote = ({ setModal }) => {
           ></textarea>
           <Button
             onClick={() => handleSubmit()}
-            disabled={form.title && form.createdAt && form.fill ? false : true}
+            disabled={form.title && form.createdAt && form.body ? false : true}
           >
             Add Note
           </Button>

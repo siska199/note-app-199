@@ -40,17 +40,18 @@ const Hompage = () => {
     html.classList.add("overflow-y-hidden");
     setModal(true);
   };
-
   return (
     <article className="container">
       <Navbar handleOnChange={handleOnChange} />
       <WrapContainerCards>
         <ContainerCards>
-          {data
-            .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-            .map((data, i) => (
-              <Card key={i} i={i + 1} data={data} />
-            ))}
+          {data.length == 0 ? (
+            <h1>Catatan Kosong</h1>
+          ) : (
+            data
+              .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+              .map((data, i) => <Card key={i} i={i + 1} data={data} />)
+          )}
         </ContainerCards>
       </WrapContainerCards>
       <ButtonAddNote onClick={() => handleOpenModal()}>
