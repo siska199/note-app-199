@@ -46,7 +46,7 @@ const Hompage = () => {
       <WrapContainerCards>
         <ContainerCards>
           {data.length == 0 ? (
-            <h1>Catatan Kosong</h1>
+            <h1>{activeMenu == "notes" ? "Notes" : "Archives"} Kosong</h1>
           ) : (
             data
               .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
